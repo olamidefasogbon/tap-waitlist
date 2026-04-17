@@ -76,7 +76,7 @@ export default function TapLandingPage() {
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
             <a href="#" className="hover:text-white transition-colors">Infrastructure</a>
-            <a href="#" className="hover:text-white transition-colors">Documentation</a>
+            <a href="#" className="hover:text-white transition-colors">Escrow API</a>
             <a href="#" className="hover:text-white transition-colors">Pricing</a>
           </div>
 
@@ -104,23 +104,23 @@ export default function TapLandingPage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0066FF] opacity-40"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0066FF]"></span>
             </span>
-            tap-core v1.0.0-alpha
+            tap escrow-engine v1.0.0
           </motion.div>
 
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05] text-white"
           >
-            Stop losing sales to <br className="hidden md:block"/>
-            <span className="text-[#0066FF]">OTP and network wahala.</span>
+            Stop losing social media sales to <br className="hidden md:block"/>
+            <span className="text-[#0066FF]">fear of scams and friction.</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed"
           >
-            We are building the <strong>"Shop Pay"</strong> for online shopping in Nigeria. 
-            Eliminate 16-digit card forms and delayed bank OTPs. Returning customers pay in exactly one tap.
+            We are building the checkout and trust layer for African social commerce. 
+            Protect your buyers with <strong>50/50 escrow</strong>, kill bank transfer delays, and let returning customers pay in exactly one tap.
           </motion.p>
 
           <motion.div 
@@ -135,7 +135,7 @@ export default function TapLandingPage() {
                       type="email" 
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="merchant@business.com" 
+                      placeholder="vendor@instagram.com" 
                       className="w-full bg-white/[0.02] border border-white/10 text-white rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-[#0066FF]/50 focus:ring-1 focus:ring-[#0066FF]/50 transition-all placeholder:text-zinc-600 shadow-inner disabled:opacity-50"
                       required
                       disabled={status === "loading"}
@@ -167,7 +167,7 @@ export default function TapLandingPage() {
             className="pt-4 flex items-center justify-center gap-2 text-sm text-zinc-500 font-medium"
           >
             <Lock className="w-4 h-4 text-zinc-500" />
-            Device-bound tokenization layer.
+            50/50 Escrow Protection • Device-bound 1-Tap Checkout
           </motion.div>
         </div>
 
@@ -189,11 +189,11 @@ export default function TapLandingPage() {
 
             <div className="flex items-center gap-4 mb-8 pb-8 border-b border-white/[0.06]">
               <div className="w-14 h-14 bg-gradient-to-tr from-zinc-800 to-zinc-700 rounded-2xl shadow-inner flex items-center justify-center text-xl font-medium text-white/50 border border-white/5">
-                J
+                A
               </div>
               <div className="text-left">
-                <h3 className="text-white font-medium text-lg tracking-tight">Jumia Store</h3>
-                <p className="text-zinc-500 text-sm">pay.tap.ng/jumia</p>
+                <h3 className="text-white font-medium text-lg tracking-tight">Aura Boutique</h3>
+                <p className="text-zinc-500 text-sm">tap.link/pay/aura</p>
               </div>
             </div>
 
@@ -223,7 +223,7 @@ export default function TapLandingPage() {
                 </div>
                 <span className="text-zinc-300 font-mono text-sm tracking-widest">•••• 4321</span>
               </div>
-              <span className="text-white font-semibold text-lg">₦25,000</span>
+              <span className="text-white font-semibold text-lg">₦45,000</span>
             </div>
 
             <button className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white py-4 rounded-xl font-medium text-base transition-all active:scale-[0.98] shadow-[0_0_20px_rgba(0,102,255,0.3)] hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">
@@ -231,7 +231,8 @@ export default function TapLandingPage() {
             </button>
             
             <p className="text-center text-[#888] text-xs mt-5 flex items-center justify-center gap-1">
-              Secured by device tokenization
+              <Lock className="w-3 h-3" />
+              Secured by tap. 12-Hour Escrow
             </p>
           </div>
         </motion.div>
@@ -245,15 +246,15 @@ export default function TapLandingPage() {
               tap<div className="w-2 h-2 bg-[#0066FF] rounded-full ml-[2px]"></div>
             </div>
             <p className="text-sm text-zinc-500 leading-relaxed pr-4">
-              One-tap payment infrastructure for Nigerian commerce!
+              Escrow and 1-tap checkout infrastructure for African social commerce.
             </p>
           </div>
           
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-100 mb-6">Product</h4>
             <ul className="text-sm text-zinc-500 space-y-4 font-medium">
-              <li><a href="#" className="hover:text-white transition-colors">Network</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">One-Tap API</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Escrow Engine</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">WhatsApp Bot</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
             </ul>
           </div>
@@ -288,4 +289,4 @@ export default function TapLandingPage() {
       </footer>
     </div>
   );
-} 
+}
