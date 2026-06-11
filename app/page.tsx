@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createClient } from "@supabase/supabase-js";
-import { ArrowRight, CheckCircle2, Globe, Lock, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, Globe, Lock, ShieldCheck, Fingerprint } from "lucide-react";
 
 export default function TapLandingPage() {
   const [supabase] = useState(() =>
@@ -34,7 +34,7 @@ export default function TapLandingPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setNameIndex((prev) => (prev + 1) % names.length);
-    }, 2500); // Changes every 2.5 seconds
+    }, 2500);
     return () => clearInterval(interval);
   }, [names.length]);
 
@@ -45,9 +45,8 @@ export default function TapLandingPage() {
     const { error } = await supabase.from("waitlist").insert([{ email }]);
 
     if (error) {
-      // 23505 = Unique Violation (Email already exists)
       if (error.code === "23505") {
-        setStatus("success"); // Treat as success so they see the "Spot secured" message
+        setStatus("success");
       } else {
         console.error("Supabase Error:", error.message);
         setStatus("error");
@@ -75,15 +74,15 @@ export default function TapLandingPage() {
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            <a href="#" className="hover:text-white transition-colors">Infrastructure</a>
-            <a href="#" className="hover:text-white transition-colors">Escrow API</a>
-            <a href="#" className="hover:text-white transition-colors">Pricing</a>
+            <a href="#" className="hover:text-white transition-colors">Features</a>
+            <a href="#" className="hover:text-white transition-colors">TAP API</a>
+            <a href="#" className="hover:text-white transition-colors">Documentation</a>
           </div>
 
           <div className="flex items-center gap-4 text-sm font-medium">
-            <a href="#" className="text-zinc-400 hover:text-white transition-colors hidden sm:block">Sign In</a>
+            <a href="#" className="text-zinc-400 hover:text-white transition-colors hidden sm:block">Log In</a>
             <button className="bg-white text-black px-4 py-2 rounded-full hover:bg-zinc-200 transition-colors shadow-sm">
-              Get Started
+              Sign Up
             </button>
           </div>
         </nav>
@@ -104,23 +103,22 @@ export default function TapLandingPage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0066FF] opacity-40"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#0066FF]"></span>
             </span>
-            tap escrow-engine v1.0.0
+            tap checkout-engine v2.0.0
           </motion.div>
 
           <motion.h1 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05] text-white"
           >
-            Stop losing social media sales to <br className="hidden md:block"/>
-            <span className="text-[#0066FF]">fear of scams and friction.</span>
+            Stop losing online sales to <br className="hidden md:block"/>
+            <span className="text-[#0066FF]">clunky redirects and failed OTPs.</span>
           </motion.h1>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed"
           >
-            We are building the checkout and trust layer for African social commerce. 
-            Protect your buyers with <strong>50/50 escrow</strong>, kill bank transfer delays, and let returning customers pay in exactly one tap.
+            We believe paying online should take a single tap. Tap Inc. provides frictionless, biometric checkouts, giving your customers an 'Apple Pay' style experience built for African commerce.
           </motion.p>
 
           <motion.div 
@@ -135,7 +133,7 @@ export default function TapLandingPage() {
                       type="email" 
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="vendor@instagram.com" 
+                      placeholder="developer@company.com" 
                       className="w-full bg-white/[0.02] border border-white/10 text-white rounded-xl px-4 py-3.5 text-sm focus:outline-none focus:border-[#0066FF]/50 focus:ring-1 focus:ring-[#0066FF]/50 transition-all placeholder:text-zinc-600 shadow-inner disabled:opacity-50"
                       required
                       disabled={status === "loading"}
@@ -166,8 +164,8 @@ export default function TapLandingPage() {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
             className="pt-4 flex items-center justify-center gap-2 text-sm text-zinc-500 font-medium"
           >
-            <Lock className="w-4 h-4 text-zinc-500" />
-            50/50 Escrow Protection • Device-bound 1-Tap Checkout
+            <ShieldCheck className="w-4 h-4 text-zinc-500" />
+            Secured by Tap Inc.
           </motion.div>
         </div>
 
@@ -184,16 +182,16 @@ export default function TapLandingPage() {
               <div className="flex items-baseline font-bold tracking-tighter text-lg text-white">
                 tap<div className="w-1.5 h-1.5 bg-[#0066FF] rounded-full ml-[1.5px]"></div>
               </div>
-              <ShieldCheck className="w-5 h-5 text-[#0066FF]" />
+              <Lock className="w-4 h-4 text-[#0066FF]" />
             </div>
 
             <div className="flex items-center gap-4 mb-8 pb-8 border-b border-white/[0.06]">
               <div className="w-14 h-14 bg-gradient-to-tr from-zinc-800 to-zinc-700 rounded-2xl shadow-inner flex items-center justify-center text-xl font-medium text-white/50 border border-white/5">
-                A
+                E
               </div>
               <div className="text-left">
-                <h3 className="text-white font-medium text-lg tracking-tight">Aura Boutique</h3>
-                <p className="text-zinc-500 text-sm">tap.link/pay/aura</p>
+                <h3 className="text-white font-medium text-lg tracking-tight">Emeka Sneakers Store</h3>
+                <p className="text-zinc-500 text-sm">tap.link/pay/emeka-sneakers</p>
               </div>
             </div>
 
@@ -227,12 +225,12 @@ export default function TapLandingPage() {
             </div>
 
             <button className="w-full bg-[#0066FF] hover:bg-[#0052CC] text-white py-4 rounded-xl font-medium text-base transition-all active:scale-[0.98] shadow-[0_0_20px_rgba(0,102,255,0.3)] hover:shadow-[0_0_30px_rgba(0,102,255,0.5)]">
-              Pay in One Tap
+              Tap to Pay
             </button>
             
-            <p className="text-center text-[#888] text-xs mt-5 flex items-center justify-center gap-1">
-              <Lock className="w-3 h-3" />
-              Secured by tap. 12-Hour Escrow
+            <p className="text-center text-[#888] text-xs mt-5 flex items-center justify-center gap-1.5">
+              <Fingerprint className="w-3.5 h-3.5" />
+              Secured by WebAuthn • Biometric One-Tap
             </p>
           </div>
         </motion.div>
@@ -246,14 +244,14 @@ export default function TapLandingPage() {
               tap<div className="w-2 h-2 bg-[#0066FF] rounded-full ml-[2px]"></div>
             </div>
             <p className="text-sm text-zinc-500 leading-relaxed pr-4">
-              Escrow and 1-tap checkout infrastructure for African social commerce.
+              Instant, frictionless one-tap payments for African businesses.
             </p>
           </div>
           
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-zinc-100 mb-6">Product</h4>
             <ul className="text-sm text-zinc-500 space-y-4 font-medium">
-              <li><a href="#" className="hover:text-white transition-colors">Escrow Engine</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Checkout API</a></li>
               <li><a href="#" className="hover:text-white transition-colors">WhatsApp Bot</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
             </ul>
